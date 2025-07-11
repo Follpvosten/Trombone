@@ -1,0 +1,646 @@
+<!-- TODO do I need this? what do I do with it? -->
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>xyz.karpador.Trombone</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-only</project_license>
+  <name>Tuba</name>
+  <summary>Browse the Fediverse</summary>
+  <description>
+    <p>
+      Explore the federated social web with Tuba for GNOME. Stay connected to your favorite communities, family and friends with support for popular Fediverse platforms like Mastodon, GoToSocial, Akkoma &amp; more!
+    </p>
+    <p>
+      The Fediverse is a decentralized social network that consists of multiple interconnected platforms and communities, allowing users to communicate and share content across different networks and servers. It promotes user privacy and data ownership, and offers an alternative to centralized social media platforms.
+    </p>
+  </description>
+  <provides>
+    <binary>xyz.karpador.Trombone</binary>
+  </provides>
+  <launchable type="desktop-id">xyz.karpador.Trombone.desktop</launchable>
+  <!-- developer_name tag deprecated with Appstream 1.0 -->
+  <developer_name translate="no">Evangelos "GeopJr" Paterakis</developer_name>
+  <developer id="dev.geopjr">
+    <name translate="no">Evangelos "GeopJr" Paterakis</name>
+  </developer>
+  <url type="homepage">https://tuba.geopjr.dev/</url>
+  <url type="bugtracker">https://github.com/GeopJr/Tuba/issues</url>
+  <url type="translate">https://hosted.weblate.org/engage/tuba/</url>
+  <url type="donation">https://geopjr.dev/donate</url>
+  <url type="contact">https://matrix.to/#/#tuba:gnome.org</url>
+  <url type="vcs-browser">https://github.com/GeopJr/Tuba/</url>
+  <url type="contribute">https://github.com/GeopJr/Tuba#contributing</url>
+  <screenshots>
+    <screenshot type="default">
+      <image type="source">https://media.githubusercontent.com/media/GeopJr/Tuba/main/data/screenshots/screenshot-1.png</image>
+    </screenshot>
+    <screenshot>
+      <image type="source">https://media.githubusercontent.com/media/GeopJr/Tuba/main/data/screenshots/screenshot-2.png</image>
+    </screenshot>
+    <screenshot>
+      <image type="source">https://media.githubusercontent.com/media/GeopJr/Tuba/main/data/screenshots/screenshot-3.png</image>
+    </screenshot>
+    <screenshot>
+      <image type="source">https://media.githubusercontent.com/media/GeopJr/Tuba/main/data/screenshots/screenshot-4.png</image>
+    </screenshot>
+  </screenshots>
+  <branding>
+    <color type="primary" scheme_preference="light">#a0eef3</color>
+    <color type="primary" scheme_preference="dark">#3a3ed7</color>
+  </branding>
+  <content_rating type="oars-1.1">
+    <content_attribute id="social-chat">moderate</content_attribute>
+    <content_attribute id="social-audio">moderate</content_attribute>
+    <content_attribute id="social-contacts">intense</content_attribute>
+  </content_rating>
+  <translation type="gettext">xyz.karpador.Trombone</translation>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <recommends>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </recommends>
+  <releases>
+    <release version="0.9.2" date="2025-03-01">
+      <description translate="no">
+        <ul>
+            <li>Fixed posts overflowing when really long hashtags are used in the hashtag bar</li>
+            <li>Fixed all files being filtered when attempting to upload using Pleroma as a backend</li>
+            <li>Fixed crash when opening mini-profiles after opening a thread</li>
+            <li>Fixed float to string being localized and preventing alt text from being submitted in some locales</li>
+            <li>Fixed notifications page not being reloaded after network connection changes when there are unread ones</li>
+            <li>Thread lines are now using the snapshot API</li>
+            <li>Simplified post widget layout</li>
+            <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.9.1" date="2024-12-24">
+      <description translate="no">
+        <ul>
+            <li>Fixed schedule month being wrong when re-scheduling</li>
+            <li>Fixed FediWrapped default style being set to transparent</li>
+            <li>Fixed some filter rows being invisible due to markup</li>
+            <li>Enabled thread muting when the active account is mentioned</li>
+            <li>Decreased the new post queue prepending scroll threshold</li>
+            <li>Added Chuckya bubble timeline support</li>
+            <li>Fixed URI opening during scripted exits caused by the switch to the async APIs</li>
+            <li>Fixed visual glitches and performance issues caused by the clamp and styling in timelines</li>
+            <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.9.0" date="2024-12-15">
+      <description translate="no">
+        <ul>
+            <li>Visual refinements to match the state of the art of GNOME apps</li>
+            <li>Added accent color support</li>
+            <li>Added bold search query matches</li>
+            <li>Added Audio Visualizer</li>
+            <li>Added Focus Picker</li>
+            <li>Added Verified Authors</li>
+            <li>Added FediWrapped</li>
+            <li>Added Scheduled Posts</li>
+            <li>Added Draft Posts</li>
+            <li>Added poll animations</li>
+            <li>Added poll show results and refresh buttons</li>
+            <li>Added full emoji reaction support when possible</li>
+            <li>Added emoji reaction stats</li>
+            <li>Added viewing attachment at focus position</li>
+            <li>Added mute expiration and notification hiding</li>
+            <li>Added link discussion timelines</li>
+            <li>Added attachment preview on the alt text dialogs</li>
+            <li>Added Mastodon-like compose urls</li>
+            <li>Added the ability to mute your own posts</li>
+            <li>Added author auto-fill in the Advanced Search dialog</li>
+            <li>Added a separate bar for hashtags placed at the end of a post</li>
+            <li>Added opt-in anonymous preference popularity analytics</li>
+            <li>Added tuba supporter badge and decorations</li>
+            <li>Improved the profile posts, replies, media filter UX</li>
+            <li>Added moved accounts notice</li>
+            <li>Added syncing spellchecking and post language</li>
+            <li>Added avatar and header alt text viewing and editing on supported backends</li>
+            <li>Added account suggestions for new fediverse accounts</li>
+            <li>Added the ability to place lists on the sidebar</li>
+            <li>Added viewing which ones of the people you follow also follow an account</li>
+            <li>Added Bubble timeline on supported backends</li>
+            <li>Added dedicated quote button on supported backends</li>
+            <li>Added warning when copying a link to a non-publicly available post</li>
+            <li>Added moderator warning notifications</li>
+            <li>Removed window controls from the Media Viewer to avoid accidentally closing the whole app</li>
+            <li>GL is no longer the preferred renderer</li>
+            <li>Fixed alt text publishing on Akkoma</li>
+            <li>Fixed crashes related to the profile editor</li>
+            <li>Fixed the floating button area being unclickable and unscrollable</li>
+            <li>Fixed headerbar having a large minimum width</li>
+            <li>Fixed outdated profile info on cached users</li>
+            <li>Fixed list creation and editing on Akkoma</li>
+            <li>Fixed filter creation and editing on GoToSocial</li>
+            <li>Fixed jarring Media Viewer scale animation states</li>
+            <li>Other minor features, style changes, bug fixes, memory leak fixes and optimizations</li>
+            <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.8.4" date="2024-09-10">
+      <description translate="no">
+        <ul>
+            <li>Fixed segfault when closing the media viewer before the spinner timeout finished</li>
+            <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.8.3" date="2024-08-26">
+      <description translate="no">
+        <ul>
+            <li>Added cache cleanup on manually downloaded videos in non-Clapper mode</li>
+            <li>Added temporary Tootle era cache cleanup mechanism</li>
+            <li>Fixed own posts being hidden if caught in a filter</li>
+            <li>Spinners will only show after 1 second in the media viewer to avoid unnecessary friction</li>
+            <li>Fixed alt text window headerbar being taller than expected</li>
+            <li>Fixed focus rings not matching their widget</li>
+            <li>Redesigned the empty Search state</li>
+            <li>Added missing tooltips</li>
+            <li>Implemented caching support for Clapper 0.8</li>
+            <li>Optimized Clapper for GIFV attachments</li>
+            <li>Removed back animation when going back home</li>
+            <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.8.2" date="2024-07-18">
+      <description translate="no">
+        <ul>
+            <li>Added moderator protection from illegal or disturbing attachments in the admin dashboard</li>
+            <li>Fixed random crash occurring when navigating back</li>
+            <li>Improved Clapper MPRIS support</li>
+            <li>Hid media controls for Clapper when viewing GIFs</li>
+            <li>Fixed notification count not updating after network re-connection</li>
+            <li>Fixed admin dashboard reports not being able to close using the window controls</li>
+            <li>Fixed websocket events being unnecessarily url decoded</li>
+            <li>Adjusted the mini profile styling</li>
+            <li>Fixed Media Viewer crashes by disabling Graphic Offload until GTK 4.16</li>
+            <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.8.1" date="2024-06-23">
+      <description translate="no">
+        <ul>
+            <li>Added a gsettings options to disable graphics offload</li>
+            <li>Fixed Media Viewer gestures requiring an extra click sometimes to work</li>
+            <li>Fixed Media Viewer images not being marked as loaded</li>
+            <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.8.0" date="2024-06-22">
+      <description translate="no">
+        <ul>
+            <li>Added Admin Dashboard</li>
+            <li>Added Advance Search Dialog</li>
+            <li>Added in-app proxy settings</li>
+            <li>Added network monitoring and graceful recovery</li>
+            <li>Added profile notes</li>
+            <li>Added mini-profile when clicking avatars</li>
+            <li>Added custom aria labels on complex containers</li>
+            <li>Added post translations when possible</li>
+            <li>Added keeping track of last used video volume between restarts</li>
+            <li>Added in-reply post indicator</li>
+            <li>Replaced the media viewer headerbar with a floating button when fullscreened</li>
+            <li>Added reactive relationship updates</li>
+            <li>Added the ability to dim non-trivial notifications like favorites and boosts</li>
+            <li>Added clearing all notifications</li>
+            <li>Added 'replying to old post' reminder switch in settings</li>
+            <li>Redesigned the preview cards into a vertical layout</li>
+            <li>Added different empty-state icons to some views</li>
+            <li>Added a settings dialog in the 'new account' window for proxy and admin mode settings</li>
+            <li>Added a crossed out boosts icon, shown when it's disabled</li>
+            <li>Added support for notification requests</li>
+            <li>Changed the default poll expiration date to 1 day if available</li>
+            <li>Added in-app resolving of web+ap links in posts/profiles</li>
+            <li>Added support for admin notifications (reports, sign-ups)</li>
+            <li>Added support for severed relationships notifications</li>
+            <li>Added blocked-by relationship status</li>
+            <li>Redesigned profile fields</li>
+            <li>Added GraphicsOffload for better video performance</li>
+            <li>Added optional Clapper support</li>
+            <li>Fixed crash when opening the composer while the instance doesn't have or has loaded its custom emojis due to optional chaining</li>
+            <li>Fixed horizontal swiping on the media viewer</li>
+            <li>Fixed composer highlighting being too loose on whole word matching</li>
+            <li>Fixed composer highlighting accepting invalid characters on hashtags</li>
+            <li>Fixed hiding post elements due to quote-inline when no quote was provided</li>
+            <li>Fixed many random crashes when going back due to a disposing hack</li>
+            <li>Fixed hashtag url matching being too loose</li>
+            <li>Fixed resolvable link detection links being too loose</li>
+            <li>Fixed OSK not fitting due to high height request on mobile</li>
+            <li>Fixed minimum width not fitting on mobile due to strict centering policy on headerbars</li>
+            <li>Fixed accessibility issues with icons, custom widgets and containers</li>
+            <li>Fixed missing tooltips</li>
+            <li>Fixed aria-labels on dates not being descriptive enough</li>
+            <li>Fixed missing singular forms of some counters</li>
+            <li>Fixed crash when closing the composer too fast due to a disposing hack</li>
+            <li>Fixed focus changes when activating a label link</li>
+            <li>Fixed media viewer gesture issues</li>
+            <li>Fixed completion provider word capturing issues</li>
+            <li>Refactored the custom emoji picker</li>
+            <li>Fixed libsoup cache not being triggered on custom emojis and causing unnecessary re-downloading</li>
+            <li>Fixed high contrast theme borders on profile fields</li>
+            <li>Fixed duplicate posts in home due to a race condition</li>
+            <li>Fixed bulk requesting relationships multiple times</li>
+            <li>Fixed missing icons or icons with incorrect context on Breeze/Yaru by bundling them</li>
+            <li>Fixed account switcher rows accepting markup when they shouldn't</li>
+            <li>Other minor bug fixes, memory leak fixes and optimizations</li>
+            <li>Updated translations</li>
+            <li>🏳️‍🌈 Happy Pride Month! 🏳️‍⚧️</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.7.2" date="2024-04-07">
+      <description translate="no">
+        <ul>
+            <li>Fixed blurriness with fractional scaling</li>
+            <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.7.1" date="2024-03-28">
+      <description translate="no">
+        <ul>
+            <li>Fixed syntax highlighting not working on vanilla Mastodon instances</li>
+            <li>Fixed keyboard navigation losing focus between page changes</li>
+            <li>Fixed MediaViewer regressions with videos due to a race condition</li>
+            <li>Fixed MediaViewer showing the wrong widget when dismissing without using gestures</li>
+            <li>Fixed overlay icon missing its background on audio attachments with thumbnails</li>
+            <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.7.0" date="2024-03-20">
+      <description translate="no">
+        <ul>
+            <li>Visual refinements to match the state of the art of GNOME apps</li>
+            <li>Added filter handling and editing support</li>
+            <li>Added post and user reporting</li>
+            <li>Added Mutes and Blocks pages</li>
+            <li>Added banners for unread Announcements and Follow Requests</li>
+            <li>Added syntax highlighting in the Composer</li>
+            <li>Added badge on 'Home' for new posts</li>
+            <li>Added recent emojis in the Custom Emoji Chooser</li>
+            <li>Added stripping tracking parameters from URLs on paste</li>
+            <li>Added notification badges on Account Switcher entries</li>
+            <li>Added the option to darken images on dark mode</li>
+            <li>Redesigned the timeline status pages</li>
+            <li>Added support for all special character counting cases</li>
+            <li>Added 'New Post' to the main menu</li>
+            <li>Added the ability to zoom using ctrl and the mouse wheel on the Media Viewer</li>
+            <li>Added manpage</li>
+            <li>Added Windows builds</li>
+            <li>Added more tracking IDs to the stripping list</li>
+            <li>Added posting visibility syncing with the instance</li>
+            <li>Fixed Media Viewer not opening the correct attachment right away and instead scrolling to it</li>
+            <li>Fixed bugs involving multiple attachments and animations in the Media Viewer</li>
+            <li>Fixed navigation not working between nested pages and non-nested pages of the same name</li>
+            <li>Fixed issues preventing Windows and macOS builds</li>
+            <li>Fixed replacing files when saving attachments</li>
+            <li>Fixed media sensitivity not being kept when editing posts</li>
+            <li>Fixed other minor bugs and memory leaks</li>
+            <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.6.3" date="2024-02-02">
+      <description translate="no">
+        <ul>
+            <li>Fixed websocket connections not retrying when getting reset by peer</li>
+            <li>Fixed dialogs being unresponsive when other dialogs get presented at the same time</li>
+            <li>Fixed adding users to lists on GoToSocial</li>
+            <li>Fixed post content overflowing under certain circumstances</li>
+            <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.6.2" date="2024-01-15">
+      <description translate="no">
+        <ul>
+            <li>Fixed incorrect DateTime calculation on very old posts</li>
+            <li>Fixed MediaViewer not handling all instances of some keybinds</li>
+            <li>Fixed sidebar headerbar account switcher button having multiple focus targets</li>
+            <li>Fixed mentions not opening on GoToSocial</li>
+            <li>Fixed some edge cases that would leave the view without a switcher</li>
+            <li>Fixed narrow mode not showing a back button</li>
+            <li>Fixed keyring not being unlocked when looking up secrets</li>
+            <li>Fixed incorrect LabelWithWidgets size calculation</li>
+            <li>Fixed segfault on friendica when handling empty image urls</li>
+            <li>Fixed MediaViewer back button showing incorrect icon on RTL</li>
+            <li>Switched to replacing the whole Navigation stack when selecting a sidebar item</li>
+            <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.6.1" date="2023-12-23">
+      <description translate="no">
+        <ul>
+            <li>Fixed French translation</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.6.0" date="2023-12-22">
+      <description translate="no">
+        <ul>
+            <li>Added MediaViewer enter and leave transitions</li>
+            <li>Added web+ap support</li>
+            <li>Redesigned account widgets</li>
+            <li>Added a button to toggle all spoilers in threads</li>
+            <li>Replaced manually caching with libsoup's built-in caching</li>
+            <li>Added advanced boost dialog to choose boost visibility and quote posts</li>
+            <li>Added keeping track of the spellchecker enabled state</li>
+            <li>Added dismissible warning when replying to posts older than 3 months</li>
+            <li>Added subscribing for notifications on new account posts</li>
+            <li>Added the option to hide accounts in list from the Home timeline</li>
+            <li>Added the ability to open profiles in browser</li>
+            <li>Added profile badges</li>
+            <li>Added keeping track of the window maximized state</li>
+            <li>Removed the preview card warning dialog</li>
+            <li>Redesigned the completion provider popups</li>
+            <li>Added per-account settings</li>
+            <li>Added more shortcuts</li>
+            <li>Fixed floating button reveal animation not playing from the bottom of the window</li>
+            <li>Fixed account switcher selection not being updated when adding a new account</li>
+            <li>Fixed mention resolving based on provided mentions not working</li>
+            <li>Fixed inconsistencies in card and focus styling</li>
+            <li>Fixed conditions that would leave the main window without a view switcher</li>
+            <li>Fixed certain post elements not being rendered</li>
+            <li>Fixed MediaViewer crash when triggering certain shortcuts while the animation is in progress</li>
+            <li>Fixed certain shortcuts not working with caps lock on</li>
+            <li>Fixed occasional duplicate posts at the top of timelines</li>
+            <li>Fixed profile timelines returning less posts on every refresh</li>
+            <li>Fixed entities not being updated in the same session showing outdated info</li>
+            <li>Fixed memory leaks and segfaults found</li>
+            <li>Fixed websockets not recovering after disconnecting</li>
+            <li>Fixed some instances of incorrect label measuring</li>
+            <li>Removed back arrow from sidebar pages</li>
+            <li>Fixed bookwyrm page title not filling all available space</li>
+            <li>Fixed flatpak notifications not including the avatar of the issuer</li>
+            <li>Fixed composer word capturing to match the whole word rather than from the start until the cursor</li>
+            <li>Fixed composer completion provider replacement not replacing the whole word</li>
+            <li>Fixed votebox labels overflowing the window</li>
+            <li>Fixed sidebar main page items not being marked as selected in some cases</li>
+            <li>Read the full changelog on the repo</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.5.0" date="2023-09-22">
+      <description translate="no">
+        <ul>
+            <li>Visual refinements to match the state of the art of GNOME apps</li>
+            <li>Added larger custom emojis option</li>
+            <li>Added instance announcements tab</li>
+            <li>Added drag and drop support to the media tab of the composer</li>
+            <li>Added clipboard paste support to the media tab of the composer</li>
+            <li>Added animations to post action buttons</li>
+            <li>Numerical values will now be shortened</li>
+            <li>Added option to mute some push notifications</li>
+            <li>Fixed some fonts not respecting the large text accessibility option</li>
+            <li>Added support for ordered lists in posts</li>
+            <li>Added BlurHash support</li>
+            <li>Fixed special font decorations not being rendered inside blockquotes</li>
+            <li>Added orientation auto-fix on media with incorrect metadata</li>
+            <li>Added a refresh entry to the main menu</li>
+            <li>Added support for hiding the quote post footer text</li>
+            <li>Added zooming support using the Ctrl key in the Media Viewer</li>
+            <li>Removed unused settings</li>
+            <li>Added support for grouping similar push notifications</li>
+            <li>Added push notification actions</li>
+            <li>Added support for changing the content type when available</li>
+            <li>Added support for showing relevant search result types first</li>
+            <li>Added support for copying media</li>
+            <li>Removed embeding all icons</li>
+            <li>Fixed crash when opening the composer too early</li>
+            <li>Read the full changelog on the repo</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.4.1" date="2023-08-05">
+        <description translate="no">
+          <ul>
+              <li>Fixed News' discussed label not being aligned properly</li>
+              <li>Fixed some strings being untranslatable</li>
+              <li>Fixed sidebar having horizontal overflow in some languages</li>
+              <li>Fixed custom emoji chooser not getting dismissed on Esc</li>
+              <li>Added showing error dialogs when composer fails</li>
+              <li>Fixed work-in-background setting not being able to be saved</li>
+              <li>Reverted the media viewer background color change</li>
+              <li>Fixed volume on videos not matching the actual value</li>
+              <li>Fixed videos playing even when not visible</li>
+              <li>Fixed custom emoji picker not listing emojis alphabetically</li>
+              <li>Fixed custom emoji picker button being visible even if there are no emojis</li>
+              <li>Read the full changelog on the repo</li>
+          </ul>
+        </description>
+    </release>
+    <release version="0.4.0" date="2023-07-19">
+        <description translate="no">
+          <ul>
+              <li>Added explore tab</li>
+              <li>Added pull to refresh</li>
+              <li>Added composer poll page</li>
+              <li>Added profile info editing</li>
+              <li>Added custom emoji picker</li>
+              <li>Added tracking id striping from links</li>
+              <li>Added somewhat pixelfed support</li>
+              <li>Added media alt text editing</li>
+              <li>Added confirmation dialog on composer exit</li>
+              <li>Updated preview card design in posts</li>
+              <li>Increased padding on video controls</li>
+              <li>Added bot badge on profiles of automated accounts</li>
+              <li>Added blur on sensitive media</li>
+              <li>Added ability to pin posts on profile</li>
+              <li>Added re-triggering composer's autocomplete when editing a pre-triggered word</li>
+              <li>Added composer spell checking</li>
+              <li>Added handling h1-h6 elements in posts</li>
+              <li>Added quoted posts in posts</li>
+              <li>Decreased sidebar width</li>
+              <li>Added smaller icons for indicators</li>
+              <li>Added video autoplay</li>
+              <li>Keep follow requests always visible</li>
+              <li>Added confirmation action on inform dialogs</li>
+              <li>Added more keyboard shortcuts</li>
+              <li>Added handling code elements in posts</li>
+              <li>Added making composer insensitive after publishing</li>
+              <li>Added keyboard shortcuts tab and window</li>
+              <li>Added pointing users to the libsecret wiki page on libsecret errors</li>
+              <li>Added removing empty conversations</li>
+              <li>Added hiding revealed posts</li>
+              <li>Added weekly tag uses in composer's autocomplete</li>
+              <li>Added app version easter egg based on current day's events</li>
+              <li>Removed drag-to-dismiss media viewer</li>
+              <li>Added letterbox images setting</li>
+              <li>Added scaling up emojis on hover setting</li>
+              <li>Added moving composer actionbar to top on narrow windows</li>
+              <li>Changed media viewer background color to a lighter one</li>
+              <li>Added auto-hiding media viewer buttons</li>
+              <li>Expanded revealed label in posts</li>
+              <li>Increased media viewer button sizes</li>
+              <li>Added background on media viewer loading spinner</li>
+              <li>Added double click to zoom-in/zoom-out on media viewer</li>
+              <li>Added disabling expanding picture by default in media viewer setting</li>
+              <li>Vertically centered vote checkboxes</li>
+              <li>Fixed request params being invalid if they are not empty</li>
+              <li>Removed params from tag urls</li>
+              <li>Fixed opening threads from withing a thread view</li>
+              <li>Fixed memory leak in views with tabs</li>
+              <li>Fixed reloading pinned posts on profile reload</li>
+              <li>Fixed freezing on video downloading</li>
+              <li>Fixed dates not being in local timezone</li>
+              <li>Fixed media attachments not clearing on edit</li>
+              <li>Removed excess newlines from posts</li>
+              <li>Fixed composer editor not scrolling with cursor</li>
+              <li>Fixed notifications getting mixed up after previous refactor</li>
+              <li>Fixed default language when it's null</li>
+              <li>Fixed last items in lists in posts being mixed</li>
+              <li>Fixed lists in blockquotes in posts</li>
+              <li>Fixed default language missing in posts</li>
+              <li>Fixed memory leak in composer's attachments page</li>
+              <li>Fixed large font setting being smaller that default</li>
+              <li>Fixed prepending pinned posts on profile tabs other than posts</li>
+              <li>Fixed inform / question dialogs not showing up</li>
+              <li>Fixed segfault when dismissing thread view too soon</li>
+              <li>Fixed parsing url when adding new account</li>
+              <li>Optimized some regex and widget construction instances</li>
+              <li>Fixed potential infinite loop when simplifying html</li>
+              <li>Fixed posts not wrapping if there are more custom emojis than lines</li>
+              <li>Removed 'translate' attribute from profile fields</li>
+              <li>Fixed preview card dialogs gettext</li>
+              <li>Fixed custom emojis in posts' name labels being taller than the label</li>
+              <li>Fixed posts' headings not being aligned with the post content</li>
+              <li>Fixed displaying code elements as inline or blocks in posts</li>
+              <li>Removed dynamically status widgets on rebind</li>
+              <li>Fixed memory leak in profile cover</li>
+              <li>Fixed modified url replacement</li>
+              <li>Fixed lockable togglebutton state on error not being reset</li>
+              <li>Fixed handling conversation delete events</li>
+              <li>Fixed segfault when network cb is null</li>
+              <li>Fixed not calling ecb on pre-request error</li>
+              <li>Fixed not encoding url params when adding new accounts</li>
+              <li>Fixed freezing due to measuring some posts with custom emojis</li>
+              <li>Fixed websocket connections closing after a while</li>
+              <li>Disabled markup in poll rows</li>
+              <li>Vertically centered reveal label icon</li>
+              <li>Fixed notifications not working on flatpak</li>
+              <li>Fixed pinch-to-zoom not feeling natural</li>
+              <li>Fixed jumping when switching between zoomed-in and not zoomed-in</li>
+              <li>Read the full changelog on the repo</li>
+          </ul>
+        </description>
+    </release>
+    <release version="0.3.2" date="2023-05-21">
+        <description translate="no">
+          <ul>
+              <li>Fixed severe performance issues on some devices</li>
+              <li>Fixed BookWyrm detector being too strict</li>
+          </ul>
+        </description>
+    </release>
+    <release version="0.3.1" date="2023-05-20">
+        <description translate="no">
+          <ul>
+              <li>Fixed crash when replying to posts outside of a thread</li>
+              <li>Fixed polls not getting updated</li>
+              <li>Fixed broken navigation on nested views</li>
+          </ul>
+        </description>
+    </release>
+    <release version="0.3.0" date="2023-05-20">
+        <description translate="no">
+          <ul>
+              <li>Added custom emoji support</li>
+              <li>Added link preview cards</li>
+              <li>Added Funkwhale support</li>
+              <li>Added BookWyrm support</li>
+              <li>Added All tab in search</li>
+              <li>Added Hashtags sidebar view</li>
+              <li>Added view for who favorited / boosted a post</li>
+              <li>Implemented new design for post titles</li>
+              <li>Implemented new design for expanded posts</li>
+              <li>Added composer language selector</li>
+              <li>Added more media viewer functions (zoom, panning, gestures)</li>
+              <li>Added entity queue so scroll position doesn't change</li>
+              <li>Added enlarging attachment if it's there's only one</li>
+              <li>Added post got edited notification event support</li>
+              <li>Added closing all views when active account changes</li>
+              <li>Added ability to view user avatars and headers</li>
+              <li>Added streaming support for conversations</li>
+              <li>Added Ctrl+Return as shortcut for posting</li>
+              <li>Added joined date on profiles</li>
+              <li>Added helpful message on broken keyring setup</li>
+              <li>Added marking visibility button as insensitive on edit</li>
+              <li>Added visual indicator for direct posts</li>
+              <li>Added composer focus grabbing</li>
+              <li>Added search entry focus grabbing</li>
+              <li>Added support for building without gtksourceview</li>
+              <li>Fixed websockets not closing</li>
+              <li>Fixed timelines receiving posts from other accounts after switching</li>
+              <li>Fixed complex blockquotes not rendering</li>
+              <li>Fixed multiple memory leaks</li>
+              <li>Fixed multiple performance issues</li>
+              <li>Fixed editing posts not getting updated instantly in view</li>
+              <li>Fixed composing new posts not getting added instantly in view</li>
+              <li>Fixed lists being broken from the libsoup3 migration</li>
+              <li>Fixed notification marking for Pleroma and forks</li>
+              <li>Fixed several media viewer bugs</li>
+              <li>Fixed missing underline on some links</li>
+              <li>Fixed some spinners still spinning when not visible</li>
+              <li>Fixed translations not getting applied</li>
+              <li>Fixed content warning getting removed on edit</li>
+              <li>Fixed spoiler not getting wrapped in some cases</li>
+              <li>Fixed apostrophes getting escaped on edit</li>
+              <li>Fixed active account username being invisible until fetching finished</li>
+              <li>Fixed focusing twice on some widgets</li>
+              <li>Fixed window controls showing on the main headerbar when set to left</li>
+              <li>Fixed timeline never finishing</li>
+              <li>Fixed broken hashtag view when it contains special characters</li>
+              <li>Fixed empty conversations shown as posts</li>
+              <li>Fixed flap staying open when activating the sidebar header</li>
+              <li>Turned sideabar header into a button</li>
+              <li>Turned user names into buttons</li>
+              <li>Reduced bandwidth used by only connecting to notifications for each account</li>
+              <li>Removed trivial info from follow notifications</li>
+              <li>Removed post stats in text</li>
+              <li>Moved post actions to a button instead of context menu</li>
+              <li>Several other minor bug fixes</li>
+          </ul>
+        </description>
+    </release>
+    <release version="0.2.0" date="2023-04-04">
+        <description translate="no">
+          <ul>
+              <li>Added composer autocomplete for users, hashtags and emojis</li>
+              <li>Migrated to libsoup3</li>
+              <li>Added default visibility option</li>
+              <li>Added scroll to top button</li>
+              <li>Added uploading feedback</li>
+              <li>Added opening all status attachments at once</li>
+              <li>Added showing attachment preview while the full media is downloading</li>
+              <li>Moved alt text and trash can buttons apart in composer</li>
+              <li>Fixed constant CPU usage due to non-visible spinners</li>
+              <li>Fixed crash when double clicking buttons that open profiles</li>
+              <li>Fixed contrast of composer attachment buttons</li>
+              <li>Fixed context menu getting triggered when tapping attachments</li>
+              <li>Fixed some posts overflowing their container</li>
+              <li>Fixed spoiler labels not wrapping</li>
+              <li>Several libsecret fixes</li>
+          </ul>
+        </description>
+    </release>
+    <release version="0.1.0" date="2023-03-23">
+        <description translate="no">
+          <ul>
+              <li>Initial release</li>
+          </ul>
+        </description>
+    </release>
+  </releases>
+</component>

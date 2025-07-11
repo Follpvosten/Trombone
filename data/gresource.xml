@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+    <gresource prefix="/xyz/karpador/Trombone/">
+        <file>style.css</file>
+        <file>style-dark.css</file>
+        <file>style-hc.css</file>
+
+        <!-- TODO... -->
+        <file preprocess="xml-stripblanks">icons/scalable/apps/dev.geopjr.Archives.svg</file>
+        <file preprocess="xml-stripblanks">icons/scalable/apps/dev.geopjr.Calligraphy.svg</file>
+        <file preprocess="xml-stripblanks">icons/scalable/apps/dev.geopjr.Collision.svg</file>
+    </gresource>
+    <!-- TODO -->
+    <!-- <gresource prefix="/org/gnome/gtksourceview/language-specs">
+      <file preprocess="xml-stripblanks" alias="fedi-basic.lang">langs/fedi-basic.lang</file>
+      <file preprocess="xml-stripblanks" alias="fedi-html.lang">langs/fedi-html.lang</file>
+      <file preprocess="xml-stripblanks" alias="fedi-markdown.lang">langs/fedi-markdown.lang</file>
+    </gresource>
+    <gresource prefix="/org/gnome/gtksourceview/styles">
+      @GRESOURCE_SOURCEVIEW_STYLES_FILES@
+    </gresource> -->
+</gresources>
