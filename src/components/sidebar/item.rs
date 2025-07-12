@@ -51,24 +51,4 @@ impl FactoryComponent for Item {
     fn init_model(init: Self::Init, _index: &Self::Index, _sender: FactorySender<Self>) -> Self {
         init
     }
-
-    fn init_widgets(
-        &mut self,
-        _index: &Self::Index,
-        root: Self::Root,
-        _returned_widget: &<Self::ParentWidget as relm4::factory::FactoryView>::ReturnedWidget,
-        _sender: FactorySender<Self>,
-    ) -> Self::Widgets {
-        let widgets = view_output!();
-        widgets.root.set_header(None::<&gtk::Separator>);
-        if self.separated {
-            widgets.root.set_header(Some(
-                &gtk::Separator::builder()
-                    .orientation(gtk::Orientation::Horizontal)
-                    .css_classes(["ttl-separator"])
-                    .build(),
-            ));
-        }
-        widgets
-    }
 }

@@ -1,4 +1,4 @@
-use std::{borrow::Cow, fmt::Display};
+use std::{borrow::Cow, cell::RefCell, fmt::Display, rc::Rc};
 
 use crate::{data::ListId, icons};
 use relm4::{gtk::prelude::*, prelude::*};
@@ -96,7 +96,7 @@ pub enum SidebarMenuItem {
 pub struct Sidebar {
     #[allow(dead_code)]
     curr_place: Place,
-    places: FactoryVecDeque<item::Item>,
+    places: Rc<RefCell<FactoryVecDeque<item::Item>>>,
 }
 
 #[allow(dead_code)]
@@ -167,30 +167,49 @@ impl SimpleComponent for Sidebar {
         root: Self::Root,
         _sender: ComponentSender<Self>,
     ) -> ComponentParts<Self> {
-        let places = FactoryVecDeque::from_iter(
-            StaticPlace::iter()
-                .map(StaticPlace::wrap)
-                .chain(std::iter::once(Place::List(
-                    ListId("".into()),
-                    "frems".into(),
-                )))
-                .map(|place| item::Item {
-                    separated: matches!(
-                        place,
-                        Place::Static(StaticPlace::Explore) | Place::List(_, _)
-                    ),
-                    badge: 0,
+        let places = StaticPlace::iter()
+            .map(StaticPlace::wrap)
+            .chain(std::iter::once(Place::List(
+                ListId("".into()),
+                "frems".into(),
+            )))
+            .map(|place| item::Item {
+                separated: matches!(
                     place,
-                }),
-            gtk::ListBox::default(),
-        );
+                    Place::Static(StaticPlace::Explore) | Place::List(_, _)
+                ),
+                badge: 0,
+                place,
+            });
+        let places = FactoryVecDeque::from_iter(places, gtk::ListBox::default());
         let model = Self {
             curr_place: Place::Static(init),
-            places,
+            places: Rc::new(RefCell::new(places)),
         };
 
-        let places_list = model.places.widget();
+        let places_borrow = model.places.borrow();
+        let places_list = places_borrow.widget();
+        let places_handle = Rc::clone(&model.places);
+        places_list.set_header_func(move |row, prev| {
+            let places = places_handle.borrow();
+            let place = places.get(row.index() as usize).expect("what");
+            let prev = prev.and_then(|row| places.get(row.index() as usize));
+            row.set_header(None::<&gtk::Separator>);
+            if place.separated
+                && let Some(prev) = prev
+                && !prev.separated
+            {
+                row.set_header(Some(
+                    &gtk::Separator::builder()
+                        .orientation(gtk::Orientation::Horizontal)
+                        .css_classes(["ttl-separator"])
+                        .build(),
+                ));
+            }
+        });
         let widgets = view_output!();
+
+        drop(places_borrow);
 
         ComponentParts { model, widgets }
     }
