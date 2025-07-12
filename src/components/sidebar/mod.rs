@@ -62,7 +62,7 @@ impl StaticPlace {
             StaticPlace::Bookmarks => icons::BOOKMARK_OUTLINE,
             StaticPlace::Hashtags => icons::TUBA_HASHTAG,
             StaticPlace::Explore => icons::EXPLORE2,
-            StaticPlace::Local => icons::NETWORK_SERVER,
+            StaticPlace::Local => "network-server-symbolic",
             StaticPlace::Federated => icons::GLOBE,
             StaticPlace::Lists => icons::LIST_COMPACT,
         }

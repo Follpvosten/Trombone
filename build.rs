@@ -57,7 +57,6 @@ fn main() {
             "playlist-repeat",
             "minus-large",
             "music-note",
-            "network-server",
             "newspaper",
             "online",
             "padlock2-open",
