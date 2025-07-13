@@ -69,7 +69,6 @@
         packages = [
           devToolchain
         ] ++ (with pkgs; [
-          cargo-llvm-cov
           pkg-config gtk4 libadwaita
           librsvg
         ]);
