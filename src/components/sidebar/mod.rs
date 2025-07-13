@@ -56,13 +56,13 @@ impl StaticPlace {
         match self {
             StaticPlace::Home => "user-home-symbolic",
             StaticPlace::Notifications => icons::BELL_OUTLINE,
-            StaticPlace::Conversations => icons::CHAT_BUBBLES_EMPTY,
+            StaticPlace::Conversations => icons::MAIL_UNREAD,
             StaticPlace::Search => icons::LOUPE_LARGE,
             StaticPlace::Favourites => icons::STAR_OUTLINE_THICK,
             StaticPlace::Bookmarks => icons::BOOKMARK_OUTLINE,
             StaticPlace::Hashtags => icons::TUBA_HASHTAG,
             StaticPlace::Explore => icons::EXPLORE2,
-            StaticPlace::Local => "network-server-symbolic",
+            StaticPlace::Local => icons::NETWORK_SERVER,
             StaticPlace::Federated => icons::GLOBE,
             StaticPlace::Lists => icons::LIST_COMPACT,
         }

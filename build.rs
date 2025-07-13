@@ -50,13 +50,14 @@ fn main() {
             "lightbulb",
             "list-compact",
             "loupe-large",
-            "mail-small",
             "mail-closed-small",
+            "mail-small",
             "mail-unread",
             "markdown",
             "playlist-repeat",
             "minus-large",
             "music-note",
+            "network-server",
             "newspaper",
             "online",
             "padlock2-open",
@@ -80,5 +81,6 @@ fn main() {
             "verified-checkmark",
             "arrow-circular-top-right",
         ],
+        Some("trombone-"),
     );
 }
