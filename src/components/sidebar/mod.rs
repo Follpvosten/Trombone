@@ -78,7 +78,8 @@ impl StaticPlace {
 
 // TODO implement the menu lol
 #[allow(dead_code)]
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, strum::Display, strum::IntoStaticStr)]
+#[strum(serialize_all = "title_case")]
 pub enum SidebarMenuItem {
     NewPost,
     OpenProfile,
@@ -91,6 +92,26 @@ pub enum SidebarMenuItem {
     Preferences,
     KeyboardShortcuts,
     About,
+    Quit,
+}
+impl SidebarMenuItem {
+    const fn action(&self) -> &'static str {
+        use SidebarMenuItem::*;
+        match self {
+            NewPost => "app.compose",
+            OpenProfile => "app.open-current-account-profile",
+            Refresh => "app.refresh",
+            Announcements => "app.open-announcements",
+            FollowRequests => "app.open-follow-requests",
+            MutesAndBlocks => "app.open-mutes-blocks",
+            Drafts => "app.open-draft-posts",
+            ScheduledPosts => "app.open-scheduled-posts",
+            Preferences => "app.open-preferences",
+            KeyboardShortcuts => "win.show-help.overlay",
+            About => "app.about",
+            Quit => "app.quit",
+        }
+    }
 }
 
 pub struct Sidebar {
@@ -135,6 +156,7 @@ impl SimpleComponent for Sidebar {
                     },
                     pack_end = &gtk::MenuButton {
                         set_icon_name: "open-menu-symbolic",
+                        set_menu_model: Some(menu_model),
                     },
                 },
                 gtk::Box {
@@ -167,6 +189,7 @@ impl SimpleComponent for Sidebar {
         root: Self::Root,
         _sender: ComponentSender<Self>,
     ) -> ComponentParts<Self> {
+        use SidebarMenuItem::*;
         let places = StaticPlace::iter()
             .map(StaticPlace::wrap)
             .chain(std::iter::once(Place::List(
@@ -207,10 +230,39 @@ impl SimpleComponent for Sidebar {
                 ));
             }
         });
+
+        let menu_model = gio::Menu::new();
+
+        let account_menu_model = menu_from_items(&[NewPost, OpenProfile, Refresh]);
+        menu_model.append_section(None, &account_menu_model);
+
+        let misc_menu_model = menu_from_items(&[
+            Announcements,
+            FollowRequests,
+            MutesAndBlocks,
+            Drafts,
+            ScheduledPosts,
+        ]);
+        menu_model.append_section(None, &misc_menu_model);
+
+        let misc_menu_model = menu_from_items(&[Preferences, KeyboardShortcuts, About, Quit]);
+        menu_model.append_section(None, &misc_menu_model);
+
+        menu_model.freeze();
+        let menu_model = &menu_model;
+
         let widgets = view_output!();
 
         drop(places_borrow);
 
         ComponentParts { model, widgets }
     }
+}
+
+fn menu_from_items(items: &[SidebarMenuItem]) -> gio::Menu {
+    let menu = gio::Menu::new();
+    for item in items {
+        menu.append_item(&gio::MenuItem::new(Some(item.into()), Some(item.action())));
+    }
+    menu
 }
