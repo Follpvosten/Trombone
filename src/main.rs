@@ -1,12 +1,8 @@
 #![doc = env!("CARGO_PKG_DESCRIPTION")]
+use adw::prelude::NavigationPageExt;
 use components::sidebar::{Sidebar, StaticPlace};
 use gtk::prelude::{GtkWindowExt, WidgetExt};
-use relm4::{
-    adw::{self, prelude::NavigationPageExt},
-    gtk::{self, gdk},
-    prelude::*,
-    ComponentParts, ComponentSender, RelmApp, SimpleComponent,
-};
+use relm4::{ComponentParts, ComponentSender, RelmApp, SimpleComponent, prelude::*};
 
 mod components;
 mod data;
@@ -79,24 +75,11 @@ impl SimpleComponent for AppModel {
     }
 }
 
-fn load_custom_css() {
-    gio::resources_register_include!("trombone.gresource").unwrap();
-    let display = gdk::Display::default().unwrap();
-    let provider = gtk::CssProvider::new();
-    provider.load_from_resource("/xyz/karpador/Trombone/style.css");
-    gtk::style_context_add_provider_for_display(
-        &display,
-        &provider,
-        gtk::STYLE_PROVIDER_PRIORITY_APPLICATION,
-    );
-}
-
 fn main() {
     let app = RelmApp::new("xyz.karpador.Trombone");
 
     relm4_icons::initialize_icons(icons::GRESOURCE_BYTES, icons::RESOURCE_PREFIX);
-
-    load_custom_css();
+    relm4::set_global_css(include_str!("../data/style.css"));
 
     app.run::<AppModel>(0);
 }

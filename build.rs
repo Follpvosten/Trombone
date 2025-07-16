@@ -1,7 +1,5 @@
-use glib_build_tools::compile_resources;
-
 fn main() {
-    compile_resources(&["data"], "data/gresource.xml", "trombone.gresource");
+    // glib_build_tools::compile_resources(&["data"], "data/gresource.xml", "trombone.gresource");
     relm4_icons_build::bundle_icons(
         // Name of the file that will be generated at `OUT_DIR`
         "icon_names.rs",
