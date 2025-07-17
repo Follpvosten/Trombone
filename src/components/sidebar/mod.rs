@@ -60,7 +60,7 @@ impl StaticPlace {
             StaticPlace::Search => icons::LOUPE_LARGE,
             StaticPlace::Favourites => icons::STAR_OUTLINE_THICK,
             StaticPlace::Bookmarks => icons::BOOKMARK_OUTLINE,
-            StaticPlace::Hashtags => icons::TUBA_HASHTAG,
+            StaticPlace::Hashtags => icons::HASHTAG,
             StaticPlace::Explore => icons::EXPLORE2,
             StaticPlace::Local => icons::NETWORK_SERVER,
             StaticPlace::Federated => icons::GLOBE,
