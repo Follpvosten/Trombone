@@ -76,8 +76,6 @@ impl StaticPlace {
     }
 }
 
-// TODO implement the menu lol
-#[allow(dead_code)]
 #[derive(Debug, Clone, Copy, strum::Display, strum::IntoStaticStr)]
 #[strum(serialize_all = "title_case")]
 pub enum SidebarMenuItem {
@@ -96,20 +94,20 @@ pub enum SidebarMenuItem {
 }
 impl SidebarMenuItem {
     const fn action(&self) -> &'static str {
-        use SidebarMenuItem::*;
+        use crate::actions::AppAction as Action;
         match self {
-            NewPost => "app.compose",
-            OpenProfile => "app.open-current-account-profile",
-            Refresh => "app.refresh",
-            Announcements => "app.open-announcements",
-            FollowRequests => "app.open-follow-requests",
-            MutesAndBlocks => "app.open-mutes-blocks",
-            Drafts => "app.open-draft-posts",
-            ScheduledPosts => "app.open-scheduled-posts",
-            Preferences => "app.open-preferences",
-            KeyboardShortcuts => "win.show-help.overlay",
-            About => "app.about",
-            Quit => "app.quit",
+            Self::NewPost => Action::NewPost.qualified_ident(),
+            Self::OpenProfile => Action::OpenProfile.qualified_ident(),
+            Self::Refresh => Action::Refresh.qualified_ident(),
+            Self::Announcements => Action::Announcements.qualified_ident(),
+            Self::FollowRequests => Action::FollowRequests.qualified_ident(),
+            Self::MutesAndBlocks => Action::MutesAndBlocks.qualified_ident(),
+            Self::Drafts => Action::Drafts.qualified_ident(),
+            Self::ScheduledPosts => Action::ScheduledPosts.qualified_ident(),
+            Self::Preferences => Action::Preferences.qualified_ident(),
+            Self::KeyboardShortcuts => "win.show-help.overlay",
+            Self::About => Action::About.qualified_ident(),
+            Self::Quit => Action::Quit.qualified_ident(),
         }
     }
 }
@@ -126,7 +124,6 @@ pub enum SidebarOutput {
     PlaceChanged(Place),
     AddAccount,
     SwitchAccount(String),
-    MenuItemClicked(SidebarMenuItem),
 }
 
 #[relm4::component(pub)]
@@ -187,7 +184,7 @@ impl SimpleComponent for Sidebar {
     fn init(
         init: Self::Init,
         root: Self::Root,
-        _sender: ComponentSender<Self>,
+        sender: ComponentSender<Self>,
     ) -> ComponentParts<Self> {
         use SidebarMenuItem::*;
         let places = StaticPlace::iter()
@@ -212,6 +209,13 @@ impl SimpleComponent for Sidebar {
 
         let places_borrow = model.places.borrow();
         let places_list = places_borrow.widget();
+        let places_handle = Rc::clone(&model.places);
+        let output_sender = sender.output_sender().to_owned();
+        places_list.connect_row_activated(move |_box, row| {
+            let places = places_handle.borrow();
+            let place = places.get(row.index() as usize).expect("what");
+            output_sender.emit(SidebarOutput::PlaceChanged(place.place.clone()));
+        });
         let places_handle = Rc::clone(&model.places);
         places_list.set_header_func(move |row, prev| {
             let places = places_handle.borrow();

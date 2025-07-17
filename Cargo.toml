@@ -6,6 +6,7 @@ edition = "2024"
 license = "MIT OR Apache-2.0"
 
 [dependencies]
+constcat = "0.6.1"
 gio = "0.20.12"
 relm4 = { version = "0.9.1", features = ["libadwaita", "gnome_47"] }
 relm4-icons = { git = "https://github.com/Follpvosten/relm4-icons", branch = "bundled-icon-prefix" }
