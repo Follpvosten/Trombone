@@ -208,7 +208,13 @@ impl SimpleComponent for Sidebar {
         };
 
         let places_borrow = model.places.borrow();
+        let curr_index = places_borrow
+            .iter()
+            .position(|item| item.place == model.curr_place)
+            .expect("what");
         let places_list = places_borrow.widget();
+        let row = places_list.row_at_index(curr_index as _).expect("what");
+        places_list.select_row(Some(&row));
         let places_handle = Rc::clone(&model.places);
         let output_sender = sender.output_sender().to_owned();
         places_list.connect_row_activated(move |_box, row| {
